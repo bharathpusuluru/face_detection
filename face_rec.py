@@ -23,10 +23,10 @@ while True:
     for (x, y, w, h) in faces:
         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
         
-        # Recognize the face
+ 
         id_, conf = recognizer.predict(gray[y:y+h, x:x+w])
         
-        # If confidence is below a certain threshold (e.g., 100), you can consider the face as recognized
+        
         if conf <= 100:
             name = label_map.get(id_, "Unknown")
             cv2.putText(frame, name, (x, y), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
